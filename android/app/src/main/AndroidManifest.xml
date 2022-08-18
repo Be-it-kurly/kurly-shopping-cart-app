@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.kurly_shopping_cart_app">
+    package="co.beit.kurlycart">
    <application
         android:label="kurly_shopping_cart_app"
         android:name="${applicationName}"
