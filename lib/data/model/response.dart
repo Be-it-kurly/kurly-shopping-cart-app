@@ -38,13 +38,18 @@ class KurlyUserResponse {
 class CartResultResponse {
   List<List<Recipe>> recipeList = [[]];
   List<Ingredient> ingredientList = [];
+  int totalMealPrice = 0;
 
-  CartResultResponse({required this.recipeList, required this.ingredientList});
+  CartResultResponse(
+      {required this.totalMealPrice,
+      required this.recipeList,
+      required this.ingredientList});
 
   factory CartResultResponse.fromJson(Map<String, dynamic> json) {
     try {
       List<List<Recipe>> totalDailyRecipeList = [];
       List<Ingredient> totalIngredientList = [];
+      int mealPrice = 0;
 
       if (json['receiptList'] != null) {
         // List<dynamic> totalDoubleList = json['receiptList'] as List<dynamic>;
@@ -65,8 +70,10 @@ class CartResultResponse {
             .map((ingredient) => Ingredient.fromJson(ingredient))
             .toList();
       }
+      mealPrice = json['totalMealPrice'] as int;
 
       return CartResultResponse(
+        totalMealPrice: mealPrice,
         recipeList: totalDailyRecipeList,
         ingredientList: totalIngredientList,
       );

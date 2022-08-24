@@ -1,152 +1,94 @@
 import 'package:dio/dio.dart';
 
-class BadRequestException extends DioError implements Exception {
+class BadRequestException extends DioError {
   BadRequestException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'Invalid request';
-  }
 }
 
-class InternalServerErrorException extends DioError implements Exception {
+class InternalServerErrorException extends DioError {
   InternalServerErrorException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'Unknown error occurred, please try again later.';
-  }
 }
 
-class ConflictException extends DioError implements Exception {
+class ConflictException extends DioError {
   ConflictException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'Conflict occurred';
-  }
 }
 
-class UnauthorizedException extends DioError implements Exception {
-  UnauthorizedException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'Access denied, wrong token';
-  }
+class UnauthorizedException extends DioError {
+  UnauthorizedException(
+    RequestOptions r,
+  ) : super(requestOptions: r);
 }
 
-class NotFoundException extends DioError implements Exception {
+class NotFoundException extends DioError {
   NotFoundException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'The requested information could not be found';
-  }
 }
 
-class NoInternetConnectionException extends DioError implements Exception {
+class NoInternetConnectionException extends DioError {
   NoInternetConnectionException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'No internet connection detected, please try again.';
-  }
 }
 
-class TimeOutException extends DioError implements Exception {
+class TimeOutException extends DioError {
   TimeOutException(RequestOptions r) : super(requestOptions: r);
-
-  @override
-  String toString() {
-    return 'The connection has timed out, please try again.';
-  }
 }
 
-class NoDataException implements Exception {
+class NoDataException extends CustomError {
   @override
   String toString() {
     return 'Success, but empty list';
   }
 }
 
-class WrongPasswordException implements Exception {
+class DataParsingException extends CustomError {
   @override
   String toString() {
     return 'Success, but empty list';
   }
 }
 
-class NoUserException implements Exception {
+class LocalStorageException extends CustomError {
   @override
   String toString() {
     return 'Success, but empty list';
   }
 }
 
-class DataParsingException implements Exception {
+class CustomError implements Exception {
+  CustomError({
+    this.requestOptions,
+    this.response,
+    this.type = DioErrorType.other,
+    this.error,
+  });
+
+  /// Request info.
+  RequestOptions? requestOptions;
+
+  /// Response info, it may be `null` if the request can't reach to
+  /// the http server, for example, occurring a dns error, network is not available.
+  Response? response;
+
+  DioErrorType type;
+
+  /// The original error/exception object; It's usually not null when `type`
+  /// is DioErrorType.other
+  dynamic error;
+
+  StackTrace? _stackTrace;
+
+  set stackTrace(StackTrace? stack) => _stackTrace = stack;
+
+  StackTrace? get stackTrace => _stackTrace;
+
+  String get message => (error?.toString() ?? '');
+
   @override
   String toString() {
-    return 'Success, but empty list';
-  }
-}
-
-class MaxListException implements Exception {
-  @override
-  String toString() {
-    return 'Max list';
-  }
-}
-
-class EmptyListException implements Exception {
-  @override
-  String toString() {
-    return 'Empty list';
-  }
-}
-
-class PlatformException implements Exception {
-  @override
-  String toString() {
-    return 'Success, but empty list';
-  }
-}
-
-class SignInCredentialException implements Exception {
-  @override
-  String toString() {
-    return 'Success, but empty list';
-  }
-}
-
-class CustomFirebaseAuthException implements Exception {
-  final CREATE_EMAIL type;
-  CustomFirebaseAuthException({required this.type});
-}
-
-enum CREATE_EMAIL {
-  existingEmail,
-  weakPassword,
-  accountEnabled,
-}
-
-class CreateUserEmailException implements Exception {
-  @override
-  String toString() {
-    return 'Success, but empty list';
-  }
-}
-
-class SignInTokenException implements Exception {
-  @override
-  String toString() {
-    return 'Success, but empty list';
-  }
-}
-
-class PlatformSignInException implements Exception {
-  @override
-  String toString() {
-    return 'Success, but empty list';
+    var msg = 'DioError [$type]: $message';
+    if (error is Error) {
+      msg += '\n${(error as Error).stackTrace}';
+    }
+    if (_stackTrace != null) {
+      msg += '\nSource stack:\n$stackTrace';
+    }
+    return msg;
   }
 }

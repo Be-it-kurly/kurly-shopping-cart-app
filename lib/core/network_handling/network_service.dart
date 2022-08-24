@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-
 import '../../configs/constants/api_url.dart';
 import '../../configs/constants/enum.dart';
+import '../../configs/helpers/cache_manager.dart';
 import '../../configs/helpers/token_manager.dart';
 import '../error_handling/exceptions.dart';
 
@@ -54,28 +53,28 @@ class Api {
       switch (requestType) {
         case RequestType.GET:
           {
-            Options options = Options(headers: header ?? default_header);
+            Options options = Options(headers: header ?? defaultHeader);
             result = await dio.get(url,
                 queryParameters: queryParameters, options: options);
             break;
           }
         case RequestType.POST:
           {
-            Options options = Options(headers: header ?? default_header);
+            Options options = Options(headers: header ?? defaultHeader);
             result = await dio.post(url, data: body, options: options);
 
             break;
           }
         case RequestType.POST_FORM_DATA:
           {
-            Options options = Options(headers: header ?? default_header);
+            Options options = Options(headers: header ?? defaultHeader);
             result = await dio.post(url, data: formData, options: options);
 
             break;
           }
         case RequestType.DELETE:
           {
-            Options options = Options(headers: header ?? default_header);
+            Options options = Options(headers: header ?? defaultHeader);
             result =
                 await dio.delete(url, data: queryParameters, options: options);
             break;
@@ -87,13 +86,12 @@ class Api {
         throw NoDataException();
       }
     } catch (exception) {
-      print(exception);
       rethrow;
     }
   }
 }
 
-class AuthInterceptor extends Interceptor {
+class AuthInterceptor extends QueuedInterceptor {
   final Dio dio;
 
   AuthInterceptor(this.dio);
@@ -101,26 +99,17 @@ class AuthInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    String accessToken = '';
-    // KurlyCacheManager().getToken(CacheControllerKey.ACCESS_TOKEN);
+    if (options.headers.containsKey("requiresToken")) {
+      String accessToken = CacheManager().getCache(CacheControllerKey.token);
 
-    if (accessToken.isEmpty) {
-      // var expiration = await TokenRepository().getAccessTokenRemainingTime();
+      if (accessToken.isEmpty) {
+        accessToken = TokenManager().refreshToken();
+      }
 
-      // if (expiration.inSeconds < 60) {
-      //   dio.interceptors.requestLock.lock();
-
-      //   // Call the refresh endpoint to get a new token
-      //   await UserService().refresh().then((response) async {
-      //     await TokenRepository().persistAccessToken(response.accessToken);
-      //     accessToken = response.accessToken;
-      //   }).catchError((error, stackTrace) {
-      //     handler.reject(error, true);
-      //   }).whenComplete(() => dio.interceptors.requestLock.unlock());
-      // }
-
-      options.headers['Authorization'] = 'Bearer $accessToken';
+      options.headers.remove("requiresToken");
+      options.headers.addAll({"access-token": accessToken});
     }
+
     return handler.next(options);
   }
 }
@@ -184,7 +173,8 @@ class Logging extends Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (kDebugMode) {
-      var prettyData = JsonEncoder.withIndent('  ').convert(response.data);
+      var prettyData =
+          const JsonEncoder.withIndent('  ').convert(response.data);
 
       log(
         '\n💙 RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}\n🔹 DATA: $prettyData',
@@ -205,12 +195,12 @@ class Logging extends Interceptor {
   }
 }
 
-final Map<String, String> default_header = {
+final Map<String, String> defaultHeader = {
   'Content-type': 'application/json',
   'Accept': 'application/json',
   'client-secret': 'xyz',
   'client-id': 'abc',
   'package-name': 'com.sasa.abc',
   'platform': 'android',
-  'accessToken': "access_token"
+  'access-Token': "access_token"
 };

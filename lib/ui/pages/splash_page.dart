@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+
+import '../theme/sizes.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -11,8 +11,8 @@ class SplashPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Image.asset(
-            'assets/icons/withconi.png',
-            height: 80,
+            'assets/images/shopping_cart.png',
+            height: 200,
           ),
         ),
       ),

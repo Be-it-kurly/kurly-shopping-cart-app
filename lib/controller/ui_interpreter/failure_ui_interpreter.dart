@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:kurly_shopping_cart_app/core/error_handling/exceptions.dart';
 import '../../core/error_handling/error_message_object.dart';
 import '../../core/error_handling/failures.dart';
 import '../../ui/widgets/snackbar/snackbar.dart';
@@ -21,25 +23,25 @@ class FailureInterpreter {
     return showSnackbar(text: errorMessage.message);
   }
 
-  mapFailureToSnackbar(Failure _failure, String occurMethod) {
+  mapFailureToSnackbar(Failure failure, String occurMethod) {
     ErrorMessage errorMessage =
-        ErrorMessage.mapFailureToErrorMessage(failure: _failure);
+        ErrorMessage.mapFailureToErrorMessage(failure: failure);
 
     if (kDebugMode) {
       print(
-        '\n❤️‍🔥 FAIL[$_failure] => METHOD FROM: $occurMethod\n📍 title: ${errorMessage.title}\n📍 message: ${errorMessage.message}',
+        '\n❤️‍🔥 FAIL[$failure] => METHOD FROM: $occurMethod\n📍 title: ${errorMessage.title}\n📍 message: ${errorMessage.message}',
       );
     }
 
     return showSnackbar(text: errorMessage.message);
   }
 
-  mapFailureToPage(Failure _failure, String occurMethod) {
+  mapFailureToPage(Failure failure, String occurMethod) {
     ErrorMessage errorMessage =
-        ErrorMessage.mapFailureToErrorMessage(failure: _failure);
+        ErrorMessage.mapFailureToErrorMessage(failure: failure);
     if (kDebugMode) {
       print(
-        '\n❤️‍🔥 FAIL[$_failure] => METHOD FROM: $occurMethod\n📍 title: ${errorMessage.title}\n📍 message: ${errorMessage.message}',
+        '\n❤️‍🔥 FAIL[$failure] => METHOD FROM: $occurMethod\n📍 title: ${errorMessage.title}\n📍 message: ${errorMessage.message}',
       );
     }
     return showSnackbar(text: errorMessage.message);

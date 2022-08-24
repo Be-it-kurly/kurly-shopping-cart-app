@@ -15,6 +15,7 @@ class KurlyAppBar extends StatelessWidget with PreferredSizeWidget {
     this.onLeadingTap,
     this.backgroundColor,
     this.leadingScale,
+    this.leadingPadding,
   }) : super(key: key);
 
   String title;
@@ -24,6 +25,7 @@ class KurlyAppBar extends StatelessWidget with PreferredSizeWidget {
   void Function()? onLeadingTap;
   Color? backgroundColor;
   double? leadingScale;
+  EdgeInsetsGeometry? leadingPadding;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -31,7 +33,7 @@ class KurlyAppBar extends StatelessWidget with PreferredSizeWidget {
         scrolledUnderElevation: 5,
         shadowColor: Color.fromARGB(34, 0, 0, 0),
         elevation: 0,
-        backgroundColor: backgroundColor ?? KurlyColors.white,
+        backgroundColor: backgroundColor ?? KurlyColors.purple100,
         title: Text(
           title,
           style: TextStyle(fontFamily: KurlyFontStyle.notoSansKR),
@@ -42,7 +44,7 @@ class KurlyAppBar extends StatelessWidget with PreferredSizeWidget {
             child: Transform.scale(
               scale: 0.98,
               child: Container(
-                  color: KurlyColors.white,
+                  color: backgroundColor ?? KurlyColors.purple100,
                   alignment: Alignment.centerRight,
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: action),
@@ -55,15 +57,15 @@ class KurlyAppBar extends StatelessWidget with PreferredSizeWidget {
                 Get.back();
               },
           child: Transform.scale(
-            scale: leadingScale ?? 1.12,
+            scale: leadingScale ?? 1.8,
             child: Container(
-                color: KurlyColors.white,
+                color: backgroundColor ?? KurlyColors.purple100,
                 alignment: Alignment.centerRight,
-                padding:
-                    EdgeInsets.only(left: 20, right: 20, bottom: 10, top: 10),
+                padding: leadingPadding ??
+                    EdgeInsets.only(left: 10, right: 24, bottom: 10, top: 10),
                 child: leading ??
                     SvgPicture.asset(
-                      'assets/icons/arrow_back.svg',
+                      'assets/icons/arrow_left.svg',
                       color: KurlyColors.black,
                     )),
           ),
@@ -71,5 +73,5 @@ class KurlyAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight - 8);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight - 25);
 }

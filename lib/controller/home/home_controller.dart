@@ -1,24 +1,12 @@
 import 'package:get/get.dart';
+import 'package:kurly_shopping_cart_app/data/model/user.dart';
 
-enum PeopleAmount { one, two, three, four }
-
-String peopleAmountToString(PeopleAmount peopleAmount) {
-  switch (peopleAmount) {
-    case PeopleAmount.one:
-      return '1인';
-    case PeopleAmount.two:
-      return '2인';
-    case PeopleAmount.three:
-      return '3인';
-    case PeopleAmount.four:
-      return '4인';
-    default:
-      return '';
-  }
-}
+import '../../configs/constants/enum.dart';
+import '../auth_controller.dart';
 
 class HomeController extends GetxController {
-  Rxn<PeopleAmount> selectedPeopleAmount = Rxn<PeopleAmount>();
+  late KurlyUser _user;
+  Rx<PeopleAmount> selectedPeopleAmount = PeopleAmount.one.obs;
   List<PeopleAmount> peopleAmountList = [
     PeopleAmount.one,
     PeopleAmount.two,
@@ -26,13 +14,12 @@ class HomeController extends GetxController {
     PeopleAmount.four
   ];
 
+  KurlyUser get user => _user;
+
   @override
   void onInit() {
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
+    AuthController.to.updatePageView(isInit: 0);
+    _user = Get.arguments as KurlyUser;
   }
 }

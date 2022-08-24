@@ -7,7 +7,10 @@ import 'package:kurly_shopping_cart_app/ui/theme/text_style.dart';
 import 'package:kurly_shopping_cart_app/ui/widgets/appbar/appbar.dart';
 import 'package:kurly_shopping_cart_app/ui/widgets/button/wide_button.dart';
 
+import '../../../configs/constants/enum.dart';
 import '../../../routes/routes.dart';
+import '../../widgets/button/radio_button.dart';
+import '../../widgets/item_widget/item_widget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -21,7 +24,10 @@ class HomePage extends StatelessWidget {
           leading: Container(
               margin: EdgeInsets.only(left: 5, bottom: 1),
               child: Image.asset('assets/images/kurly.png')),
-          leadingScale: 5,
+          leadingScale: 2.5,
+          leadingPadding:
+              EdgeInsets.only(left: 10, bottom: 12, top: 8, right: 15),
+          onLeadingTap: () {},
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -35,7 +41,7 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 28,
+                      height: 25,
                     ),
                     Text(
                       '컬리와 당신의 장바구니',
@@ -87,7 +93,7 @@ class HomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '당신의 일주일을 위한 장바구니 추천',
+                      '${_controller.user.userName}님의 일주일을 위한 장바구니 추천',
                       style: TextStyle(
                           fontFamily: KurlyFontStyle.notoSansKR,
                           fontWeight: FontWeight.w500,
@@ -107,9 +113,11 @@ class HomePage extends StatelessWidget {
                                               .value = peopleAmount;
                                         },
                                         text:
-                                            peopleAmountToString(peopleAmount),
+                                            peopleAmountToKorean(peopleAmount),
                                         selectedValue: _controller
                                             .selectedPeopleAmount.value,
+                                        unselectedBackgroundColor:
+                                            KurlyColors.white,
                                         value: peopleAmount),
                                   )))
                               .toList()),
@@ -122,9 +130,26 @@ class HomePage extends StatelessWidget {
                       runSpacing: 15,
                       spacing: 15,
                       children: [
-                        WeekItemWidget(),
-                        WeekItemWidget(),
-                        WeekItemWidget(),
+                        KurlyItemWidget(
+                          imageUrl: 'assets/images/vegan_food.png',
+                          cartName: '일주일 비거니즘 도전!\n맛있는 채식 장바구니',
+                          price: '56,500원',
+                        ),
+                        KurlyItemWidget(
+                          imageUrl: 'assets/images/side_dish.png',
+                          cartName: '동물복지 친환경 재료!\n환경을 위한 반찬 장바구니',
+                          price: '47,000원',
+                        ),
+                        KurlyItemWidget(
+                          imageUrl: 'assets/images/chicken_food.png',
+                          cartName: '이국적인 맛을 좋아하는\n당신을 위한 장바구니',
+                          price: '51,500원',
+                        ),
+                        KurlyItemWidget(
+                          imageUrl: 'assets/images/indian_food.png',
+                          cartName: '건강한 탄단지를 골고루!\n헬스인을 위한 장바구니',
+                          price: '46,000원',
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -136,115 +161,5 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ));
-  }
-}
-
-class WeekItemWidget extends StatelessWidget {
-  const WeekItemWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: (KurlyWidth - 40 - 15) / 2,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: (KurlyWidth - 40 - 15) / 2,
-            height: 190,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/images/vegan_food.png')),
-                borderRadius: BorderRadius.circular(8)),
-          ),
-          Container(
-            height: 50,
-            width: double.infinity,
-            alignment: Alignment.centerLeft,
-            child: Text(
-              '일주일 비거니즘 도전!\n맛있는 채식 장바구니',
-              style: TextStyle(
-                  fontFamily: KurlyFontStyle.notoSansKR,
-                  fontWeight: FontWeight.w400,
-                  color: KurlyColors.black,
-                  height: 1.3,
-                  fontSize: 15),
-            ),
-          ),
-          Text(
-            '12,500원',
-            style: TextStyle(
-                fontFamily: KurlyFontStyle.notoSansKR,
-                fontWeight: FontWeight.w700,
-                color: KurlyColors.black,
-                fontSize: 16),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class KurlyTextRadioButton extends StatelessWidget {
-  KurlyTextRadioButton(
-      {Key? key,
-      required this.text,
-      this.selectedTextColor = KurlyColors.white,
-      this.unselectedTextColor = KurlyColors.grey150,
-      required this.selectedValue,
-      this.onTap,
-      required this.value,
-      this.unselectedBackgroundColor = KurlyColors.white,
-      this.selectedBackgroundColor = KurlyColors.purple100})
-      : super(key: key);
-
-  String text;
-  Color selectedTextColor;
-  Color unselectedTextColor;
-  Color selectedBackgroundColor;
-  Color unselectedBackgroundColor;
-  dynamic selectedValue;
-  dynamic value;
-  void Function()? onTap;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Ink(
-        decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  color: Color.fromARGB(40, 0, 0, 0),
-                  blurRadius: 7,
-                  spreadRadius: 0)
-            ],
-            color: (selectedValue == value)
-                ? selectedBackgroundColor
-                : unselectedBackgroundColor,
-            borderRadius: BorderRadius.circular(5)),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(5),
-          onTap: onTap,
-          child: Container(
-            alignment: Alignment.center,
-            width: 57,
-            height: 30,
-            child: Text(
-              text,
-              style: TextStyle(
-                  fontFamily: KurlyFontStyle.notoSansKR,
-                  fontWeight: FontWeight.w500,
-                  color: (selectedValue == value)
-                      ? selectedTextColor
-                      : unselectedTextColor,
-                  fontSize: 14),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }
