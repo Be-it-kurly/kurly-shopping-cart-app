@@ -27,7 +27,8 @@ class ShoppingCartResultController extends GetxController {
   int _peopleAmount = 0;
   int _searchCount = 0;
   List<String> _keywordList = [];
-  int totalCartPrice = 0;
+  RxInt _initialCartPrice = 0.obs;
+  RxInt selectedCartPrice = 0.obs;
 
   @override
   void onInit() {
@@ -40,21 +41,37 @@ class ShoppingCartResultController extends GetxController {
     _peopleAmount = Get.arguments['peopleAmount'] as int;
     _mealTime = Get.arguments['mealTime'] as List<Meal>;
     _keywordList = Get.arguments['keywordList'] as List<String>;
-    totalCartPrice = _cartResult.totalMealPrice;
-
+    _initialCartPrice.value = _cartResult.totalMealPrice;
     assignCartResult(cartResult: _cartResult);
   }
 
   @override
   void onReady() {
     super.onReady();
+    ever(selectedIngredientList, setSelectedCartPrice);
   }
 
   assignCartResult({required CartResultResponse cartResult}) {
     dailyRecipeList.assignAll(cartResult.recipeList);
     ingredientList.assignAll(cartResult.ingredientList);
     selectedIngredientList.assignAll(cartResult.ingredientList);
+    setSelectedCartPrice(selectedIngredientList);
+
     update();
+  }
+
+  setSelectedCartPrice(List<Ingredient> selectedIngredientList) {
+    int totalSelectedCartPrice = 0;
+    selectedIngredientList
+        .map((ingredient) {
+          return ingredient.ingredientCount * int.parse(ingredient.price);
+        })
+        .toList()
+        .forEach((ingredientPrice) {
+          totalSelectedCartPrice += ingredientPrice;
+        });
+
+    selectedCartPrice.value = totalSelectedCartPrice;
   }
 
   String mealTimeEnglishToKorean({required String mealTimeEng}) {
@@ -99,15 +116,24 @@ class ShoppingCartResultController extends GetxController {
     CartResultResponse cartResult = CartResultResponse(
         recipeList: dailyRecipeList,
         ingredientList: ingredientList,
-        totalMealPrice: totalCartPrice);
+        totalMealPrice: _initialCartPrice.value);
 
-    Either<Failure, bool> updateCartEither = await _shoppingCartRepository
-        .updateSoldCart(cartResult: cartResult, searchCount: _searchCount);
+    Either<Failure, bool> updateCartEither = await showLoading(() =>
+        _shoppingCartRepository.updateSoldCart(
+            cartResult: cartResult, searchCount: _searchCount));
 
-    updateCartEither.fold(
-        (failure) => FailureInterpreter()
-            .mapFailureToSnackbar(failure, 'updateSoldCart'), (success) {
-      // Get.offAllNamed(Routes.HOME);
+    bool success = updateCartEither.fold((failure) {
+      FailureInterpreter().mapFailureToSnackbar(failure, 'updateSoldCart');
+      return false;
+    }, (success) {
+      return true;
     });
+
+    if (success) {
+      Get.offAllNamed(
+        Routes.HOME,
+      );
+    }
+    return;
   }
 }

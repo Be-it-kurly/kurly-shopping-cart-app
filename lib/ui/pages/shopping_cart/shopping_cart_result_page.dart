@@ -1,3 +1,4 @@
+import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import 'package:kurly_shopping_cart_app/ui/theme/sizes.dart';
 import 'package:kurly_shopping_cart_app/ui/theme/text_style.dart';
 import 'package:kurly_shopping_cart_app/ui/widgets/appbar/appbar.dart';
 import 'package:kurly_shopping_cart_app/ui/widgets/button/wide_button.dart';
+import 'package:kurly_shopping_cart_app/ui/widgets/snackbar/snackbar.dart';
 
 import '../../../configs/helpers/formatter.dart';
 import '../../../routes/routes.dart';
@@ -89,28 +91,37 @@ class ShoppingCartResultPage extends StatelessWidget {
                                         fontSize: 22),
                                   ),
                                 ])),
-                                Text.rich(TextSpan(children: [
-                                  TextSpan(
-                                    text: '장바구니 금액 ',
+                                Row(children: [
+                                  Text(
+                                    '장바구니 금액 ',
                                     style: TextStyle(
                                         fontFamily: KurlyFontStyle.notoSansKR,
                                         fontWeight: FontWeight.w400,
                                         fontSize: 22),
                                   ),
-                                  TextSpan(
-                                    text: _controller.totalCartPrice.toString(),
-                                    style: GoogleFonts.openSans(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 22),
+                                  Obx(
+                                    () => AnimatedFlipCounter(
+                                      value:
+                                          _controller.selectedCartPrice.value,
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.fastLinearToSlowEaseIn,
+                                      thousandSeparator: ',',
+                                      wholeDigits: 4,
+                                      textStyle: GoogleFonts.openSans(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 22,
+                                          color: KurlyColors.black,
+                                          height: 1.5),
+                                    ),
                                   ),
-                                  TextSpan(
-                                    text: '원',
+                                  Text(
+                                    '원',
                                     style: TextStyle(
                                         fontFamily: KurlyFontStyle.notoSansKR,
                                         fontWeight: FontWeight.w400,
                                         fontSize: 22),
-                                  ),
-                                ])),
+                                  )
+                                ])
                               ],
                             ),
                             GestureDetector(
@@ -214,25 +225,48 @@ class ShoppingCartResultPage extends StatelessWidget {
                     children: _controller.ingredientList
                         .map((ingredient) => IngredientItemWidget(
                               ingredientName: ingredient.ingredientName,
-                              price: decimalFormat
-                                  .format(int.parse(ingredient.price)),
+                              price: decimalFormat.format(
+                                  int.parse(ingredient.price) *
+                                      ingredient.ingredientCount),
                               quantity: ingredient.ingredientCount,
                               imageUrl: ingredient.thumbnail,
                               onMinusTapped: () {
-                                if (ingredient.ingredientCount > 1) {
-                                  ingredient.ingredientCount -= 1;
-                                  _controller.ingredientList.refresh();
+                                if (_controller.selectedIngredientList
+                                    .contains(ingredient)) {
+                                  if (ingredient.ingredientCount > 1) {
+                                    ingredient.ingredientCount -= 1;
+                                    _controller.selectedIngredientList
+                                        .refresh();
+                                  } else {
+                                    showSnackbar(text: '재료는 1개 이상 담아야 해요');
+                                  }
+                                } else {
+                                  showSnackbar(text: '재료를 담은 후에 수정해주세요');
                                 }
                               },
                               onPlusTapped: () {
-                                if (ingredient.ingredientCount < 50) {
-                                  ingredient.ingredientCount += 1;
-                                  _controller.ingredientList.refresh();
+                                if (_controller.selectedIngredientList
+                                    .contains(ingredient)) {
+                                  if (ingredient.ingredientCount < 50) {
+                                    ingredient.ingredientCount += 1;
+                                    _controller.selectedIngredientList
+                                        .refresh();
+                                  } else {
+                                    showSnackbar(text: '재료는 50개 이상 담을 수 없어요');
+                                  }
+                                } else {
+                                  showSnackbar(text: '재료를 담은 후에 수정해주세요');
                                 }
                               },
                               onRemoveTapped: () {
-                                _controller.ingredientList.remove(ingredient);
-                                _controller.ingredientList.refresh();
+                                if (_controller
+                                    .selectedIngredientList.isEmpty) {
+                                  showSnackbar(text: '장바구니에 하나 이상의 재료가 있어야 해요');
+                                } else {
+                                  _controller.selectedIngredientList
+                                      .remove(ingredient);
+                                  _controller.selectedIngredientList.refresh();
+                                }
                               },
                               onCheckTapped: () {
                                 if (_controller.selectedIngredientList
@@ -251,7 +285,10 @@ class ShoppingCartResultPage extends StatelessWidget {
                         .toList(),
                   ),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 50,
+              ),
             ],
           ),
         ));

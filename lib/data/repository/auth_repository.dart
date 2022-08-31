@@ -18,15 +18,47 @@ class AuthRepository {
   final CacheManager _cacheManager = CacheManager();
   final AuthAPI _api = AuthAPI();
 
-  Future<Either<Failure, String>> saveJwtTokenWithUserId({
+  Future<Either<Failure, String>> issueJwtTokenWithUserId({
     required String userId,
   }) async {
     try {
       String token = TokenManager().issueToken(userId: userId);
+      // await _cacheManager.saveCache(CacheControllerKey.userId, userId);
+      // await _cacheManager.saveCache(CacheControllerKey.token, token);
+
+      return Right(token);
+    } on JwtTokenSigningException {
+      return const Left(JwtTokenIssuingFailure());
+    } on NoInternetConnectionException {
+      return const Left(NoConnectionFailure());
+    } on TimeOutException {
+      return const Left(DioOtherFailure());
+    } on BadRequestException {
+      return Left(DioOtherFailure());
+    } on InternalServerErrorException {
+      return const Left(DioOtherFailure());
+    } on ConflictException {
+      return const Left(DioOtherFailure());
+    } on UnauthorizedException {
+      return const Left(UnauthorizedFailure());
+    } on NotFoundException {
+      return const Left(NotFoundFailure());
+    } on LocalStorageException {
+      return const Left(SaveStorageDataFailure());
+    } catch (e) {
+      return const Left(UndefinedFailure());
+    }
+  }
+
+  Future<Either<Failure, String>> saveUserIdAndTokenCache(
+      {required String userId, required String token}) async {
+    try {
       await _cacheManager.saveCache(CacheControllerKey.userId, userId);
       await _cacheManager.saveCache(CacheControllerKey.token, token);
 
       return Right(token);
+    } on JwtTokenSigningException {
+      return const Left(JwtTokenRefreshFailure());
     } on NoInternetConnectionException {
       return const Left(NoConnectionFailure());
     } on TimeOutException {

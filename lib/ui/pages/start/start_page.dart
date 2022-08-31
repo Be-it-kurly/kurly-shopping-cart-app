@@ -97,8 +97,8 @@ class StartPage extends StatelessWidget {
                       userName: _controller.userList[0].userName,
                       userGender: Gender.female,
                       userAge: _controller.userList[0].age,
-                      onTap: () {
-                        _controller.setUserAndNextPage(userIndex: 0);
+                      onTap: () async {
+                        await _controller.setUserAndNextPage(userIndex: 0);
                       },
                     ),
                     SizedBox(
@@ -108,8 +108,8 @@ class StartPage extends StatelessWidget {
                       userName: _controller.userList[1].userName,
                       userGender: Gender.male,
                       userAge: _controller.userList[1].age,
-                      onTap: () {
-                        _controller.setUserAndNextPage(userIndex: 1);
+                      onTap: () async {
+                        await _controller.setUserAndNextPage(userIndex: 1);
                       },
                     ),
                   ],

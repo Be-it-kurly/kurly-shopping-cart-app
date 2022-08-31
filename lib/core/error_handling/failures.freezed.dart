@@ -28,6 +28,8 @@ mixin _$Failure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +44,8 @@ mixin _$Failure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,8 @@ mixin _$Failure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +79,10 @@ mixin _$Failure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +97,8 @@ mixin _$Failure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +113,8 @@ mixin _$Failure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,6 +185,8 @@ class _$ServerFailure extends ServerFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return serverFailure();
   }
@@ -188,6 +204,8 @@ class _$ServerFailure extends ServerFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return serverFailure?.call();
   }
@@ -205,6 +223,8 @@ class _$ServerFailure extends ServerFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -228,6 +248,10 @@ class _$ServerFailure extends ServerFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return serverFailure(this);
   }
@@ -245,6 +269,8 @@ class _$ServerFailure extends ServerFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return serverFailure?.call(this);
   }
@@ -262,6 +288,8 @@ class _$ServerFailure extends ServerFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -327,6 +355,8 @@ class _$DataParsingFailure extends DataParsingFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return dataParsingFailure();
   }
@@ -344,6 +374,8 @@ class _$DataParsingFailure extends DataParsingFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return dataParsingFailure?.call();
   }
@@ -361,6 +393,8 @@ class _$DataParsingFailure extends DataParsingFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (dataParsingFailure != null) {
@@ -384,6 +418,10 @@ class _$DataParsingFailure extends DataParsingFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return dataParsingFailure(this);
   }
@@ -401,6 +439,8 @@ class _$DataParsingFailure extends DataParsingFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return dataParsingFailure?.call(this);
   }
@@ -418,6 +458,8 @@ class _$DataParsingFailure extends DataParsingFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (dataParsingFailure != null) {
@@ -483,6 +525,8 @@ class _$NoConnectionFailure extends NoConnectionFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return noConnectionFailure();
   }
@@ -500,6 +544,8 @@ class _$NoConnectionFailure extends NoConnectionFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return noConnectionFailure?.call();
   }
@@ -517,6 +563,8 @@ class _$NoConnectionFailure extends NoConnectionFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (noConnectionFailure != null) {
@@ -540,6 +588,10 @@ class _$NoConnectionFailure extends NoConnectionFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return noConnectionFailure(this);
   }
@@ -557,6 +609,8 @@ class _$NoConnectionFailure extends NoConnectionFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return noConnectionFailure?.call(this);
   }
@@ -574,6 +628,8 @@ class _$NoConnectionFailure extends NoConnectionFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (noConnectionFailure != null) {
@@ -639,6 +695,8 @@ class _$UnauthorizedFailure extends UnauthorizedFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return unauthorizedFailure();
   }
@@ -656,6 +714,8 @@ class _$UnauthorizedFailure extends UnauthorizedFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return unauthorizedFailure?.call();
   }
@@ -673,6 +733,8 @@ class _$UnauthorizedFailure extends UnauthorizedFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (unauthorizedFailure != null) {
@@ -696,6 +758,10 @@ class _$UnauthorizedFailure extends UnauthorizedFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return unauthorizedFailure(this);
   }
@@ -713,6 +779,8 @@ class _$UnauthorizedFailure extends UnauthorizedFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return unauthorizedFailure?.call(this);
   }
@@ -730,6 +798,8 @@ class _$UnauthorizedFailure extends UnauthorizedFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (unauthorizedFailure != null) {
@@ -794,6 +864,8 @@ class _$NotFoundFailure extends NotFoundFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return notFoundFailure();
   }
@@ -811,6 +883,8 @@ class _$NotFoundFailure extends NotFoundFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return notFoundFailure?.call();
   }
@@ -828,6 +902,8 @@ class _$NotFoundFailure extends NotFoundFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (notFoundFailure != null) {
@@ -851,6 +927,10 @@ class _$NotFoundFailure extends NotFoundFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return notFoundFailure(this);
   }
@@ -868,6 +948,8 @@ class _$NotFoundFailure extends NotFoundFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return notFoundFailure?.call(this);
   }
@@ -885,6 +967,8 @@ class _$NotFoundFailure extends NotFoundFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (notFoundFailure != null) {
@@ -950,6 +1034,8 @@ class _$NoUserDataFailure extends NoUserDataFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return noUserDataFailure();
   }
@@ -967,6 +1053,8 @@ class _$NoUserDataFailure extends NoUserDataFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return noUserDataFailure?.call();
   }
@@ -984,6 +1072,8 @@ class _$NoUserDataFailure extends NoUserDataFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (noUserDataFailure != null) {
@@ -1007,6 +1097,10 @@ class _$NoUserDataFailure extends NoUserDataFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return noUserDataFailure(this);
   }
@@ -1024,6 +1118,8 @@ class _$NoUserDataFailure extends NoUserDataFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return noUserDataFailure?.call(this);
   }
@@ -1041,6 +1137,8 @@ class _$NoUserDataFailure extends NoUserDataFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (noUserDataFailure != null) {
@@ -1106,6 +1204,8 @@ class _$GetStorageDataFailure extends GetStorageDataFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return getStorageDataFailure();
   }
@@ -1123,6 +1223,8 @@ class _$GetStorageDataFailure extends GetStorageDataFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return getStorageDataFailure?.call();
   }
@@ -1140,6 +1242,8 @@ class _$GetStorageDataFailure extends GetStorageDataFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (getStorageDataFailure != null) {
@@ -1163,6 +1267,10 @@ class _$GetStorageDataFailure extends GetStorageDataFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return getStorageDataFailure(this);
   }
@@ -1180,6 +1288,8 @@ class _$GetStorageDataFailure extends GetStorageDataFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return getStorageDataFailure?.call(this);
   }
@@ -1197,6 +1307,8 @@ class _$GetStorageDataFailure extends GetStorageDataFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (getStorageDataFailure != null) {
@@ -1263,6 +1375,8 @@ class _$SaveStorageDataFailure extends SaveStorageDataFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return saveStorageDataFailure();
   }
@@ -1280,6 +1394,8 @@ class _$SaveStorageDataFailure extends SaveStorageDataFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return saveStorageDataFailure?.call();
   }
@@ -1297,6 +1413,8 @@ class _$SaveStorageDataFailure extends SaveStorageDataFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (saveStorageDataFailure != null) {
@@ -1320,6 +1438,10 @@ class _$SaveStorageDataFailure extends SaveStorageDataFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return saveStorageDataFailure(this);
   }
@@ -1337,6 +1459,8 @@ class _$SaveStorageDataFailure extends SaveStorageDataFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return saveStorageDataFailure?.call(this);
   }
@@ -1354,6 +1478,8 @@ class _$SaveStorageDataFailure extends SaveStorageDataFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (saveStorageDataFailure != null) {
@@ -1418,6 +1544,8 @@ class _$UndefinedFailure extends UndefinedFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return undefinedFailure();
   }
@@ -1435,6 +1563,8 @@ class _$UndefinedFailure extends UndefinedFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return undefinedFailure?.call();
   }
@@ -1452,6 +1582,8 @@ class _$UndefinedFailure extends UndefinedFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (undefinedFailure != null) {
@@ -1475,6 +1607,10 @@ class _$UndefinedFailure extends UndefinedFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return undefinedFailure(this);
   }
@@ -1492,6 +1628,8 @@ class _$UndefinedFailure extends UndefinedFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return undefinedFailure?.call(this);
   }
@@ -1509,6 +1647,8 @@ class _$UndefinedFailure extends UndefinedFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (undefinedFailure != null) {
@@ -1573,6 +1713,8 @@ class _$DioOtherFailure extends DioOtherFailure {
     required TResult Function() saveStorageDataFailure,
     required TResult Function() undefinedFailure,
     required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
   }) {
     return dioOtherFailure();
   }
@@ -1590,6 +1732,8 @@ class _$DioOtherFailure extends DioOtherFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
   }) {
     return dioOtherFailure?.call();
   }
@@ -1607,6 +1751,8 @@ class _$DioOtherFailure extends DioOtherFailure {
     TResult Function()? saveStorageDataFailure,
     TResult Function()? undefinedFailure,
     TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (dioOtherFailure != null) {
@@ -1630,6 +1776,10 @@ class _$DioOtherFailure extends DioOtherFailure {
         saveStorageDataFailure,
     required TResult Function(UndefinedFailure value) undefinedFailure,
     required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
   }) {
     return dioOtherFailure(this);
   }
@@ -1647,6 +1797,8 @@ class _$DioOtherFailure extends DioOtherFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
   }) {
     return dioOtherFailure?.call(this);
   }
@@ -1664,6 +1816,8 @@ class _$DioOtherFailure extends DioOtherFailure {
     TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
     TResult Function(UndefinedFailure value)? undefinedFailure,
     TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
     required TResult orElse(),
   }) {
     if (dioOtherFailure != null) {
@@ -1676,4 +1830,346 @@ class _$DioOtherFailure extends DioOtherFailure {
 abstract class DioOtherFailure extends Failure {
   const factory DioOtherFailure() = _$DioOtherFailure;
   const DioOtherFailure._() : super._();
+}
+
+/// @nodoc
+abstract class _$$JwtTokenIssuingFailureCopyWith<$Res> {
+  factory _$$JwtTokenIssuingFailureCopyWith(_$JwtTokenIssuingFailure value,
+          $Res Function(_$JwtTokenIssuingFailure) then) =
+      __$$JwtTokenIssuingFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$JwtTokenIssuingFailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res>
+    implements _$$JwtTokenIssuingFailureCopyWith<$Res> {
+  __$$JwtTokenIssuingFailureCopyWithImpl(_$JwtTokenIssuingFailure _value,
+      $Res Function(_$JwtTokenIssuingFailure) _then)
+      : super(_value, (v) => _then(v as _$JwtTokenIssuingFailure));
+
+  @override
+  _$JwtTokenIssuingFailure get _value =>
+      super._value as _$JwtTokenIssuingFailure;
+}
+
+/// @nodoc
+
+class _$JwtTokenIssuingFailure extends JwtTokenIssuingFailure {
+  const _$JwtTokenIssuingFailure() : super._();
+
+  @override
+  String toString() {
+    return 'Failure.jwtTokenIssuingFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$JwtTokenIssuingFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
+    required TResult Function() dataParsingFailure,
+    required TResult Function() noConnectionFailure,
+    required TResult Function() unauthorizedFailure,
+    required TResult Function() notFoundFailure,
+    required TResult Function() noUserDataFailure,
+    required TResult Function() getStorageDataFailure,
+    required TResult Function() saveStorageDataFailure,
+    required TResult Function() undefinedFailure,
+    required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenIssuingFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? dataParsingFailure,
+    TResult Function()? noConnectionFailure,
+    TResult Function()? unauthorizedFailure,
+    TResult Function()? notFoundFailure,
+    TResult Function()? noUserDataFailure,
+    TResult Function()? getStorageDataFailure,
+    TResult Function()? saveStorageDataFailure,
+    TResult Function()? undefinedFailure,
+    TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenIssuingFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? dataParsingFailure,
+    TResult Function()? noConnectionFailure,
+    TResult Function()? unauthorizedFailure,
+    TResult Function()? notFoundFailure,
+    TResult Function()? noUserDataFailure,
+    TResult Function()? getStorageDataFailure,
+    TResult Function()? saveStorageDataFailure,
+    TResult Function()? undefinedFailure,
+    TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
+    required TResult orElse(),
+  }) {
+    if (jwtTokenIssuingFailure != null) {
+      return jwtTokenIssuingFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure value) serverFailure,
+    required TResult Function(DataParsingFailure value) dataParsingFailure,
+    required TResult Function(NoConnectionFailure value) noConnectionFailure,
+    required TResult Function(UnauthorizedFailure value) unauthorizedFailure,
+    required TResult Function(NotFoundFailure value) notFoundFailure,
+    required TResult Function(NoUserDataFailure value) noUserDataFailure,
+    required TResult Function(GetStorageDataFailure value)
+        getStorageDataFailure,
+    required TResult Function(SaveStorageDataFailure value)
+        saveStorageDataFailure,
+    required TResult Function(UndefinedFailure value) undefinedFailure,
+    required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenIssuingFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure value)? serverFailure,
+    TResult Function(DataParsingFailure value)? dataParsingFailure,
+    TResult Function(NoConnectionFailure value)? noConnectionFailure,
+    TResult Function(UnauthorizedFailure value)? unauthorizedFailure,
+    TResult Function(NotFoundFailure value)? notFoundFailure,
+    TResult Function(NoUserDataFailure value)? noUserDataFailure,
+    TResult Function(GetStorageDataFailure value)? getStorageDataFailure,
+    TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
+    TResult Function(UndefinedFailure value)? undefinedFailure,
+    TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenIssuingFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure value)? serverFailure,
+    TResult Function(DataParsingFailure value)? dataParsingFailure,
+    TResult Function(NoConnectionFailure value)? noConnectionFailure,
+    TResult Function(UnauthorizedFailure value)? unauthorizedFailure,
+    TResult Function(NotFoundFailure value)? notFoundFailure,
+    TResult Function(NoUserDataFailure value)? noUserDataFailure,
+    TResult Function(GetStorageDataFailure value)? getStorageDataFailure,
+    TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
+    TResult Function(UndefinedFailure value)? undefinedFailure,
+    TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
+    required TResult orElse(),
+  }) {
+    if (jwtTokenIssuingFailure != null) {
+      return jwtTokenIssuingFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class JwtTokenIssuingFailure extends Failure {
+  const factory JwtTokenIssuingFailure() = _$JwtTokenIssuingFailure;
+  const JwtTokenIssuingFailure._() : super._();
+}
+
+/// @nodoc
+abstract class _$$JwtTokenRefreshFailureCopyWith<$Res> {
+  factory _$$JwtTokenRefreshFailureCopyWith(_$JwtTokenRefreshFailure value,
+          $Res Function(_$JwtTokenRefreshFailure) then) =
+      __$$JwtTokenRefreshFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$JwtTokenRefreshFailureCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res>
+    implements _$$JwtTokenRefreshFailureCopyWith<$Res> {
+  __$$JwtTokenRefreshFailureCopyWithImpl(_$JwtTokenRefreshFailure _value,
+      $Res Function(_$JwtTokenRefreshFailure) _then)
+      : super(_value, (v) => _then(v as _$JwtTokenRefreshFailure));
+
+  @override
+  _$JwtTokenRefreshFailure get _value =>
+      super._value as _$JwtTokenRefreshFailure;
+}
+
+/// @nodoc
+
+class _$JwtTokenRefreshFailure extends JwtTokenRefreshFailure {
+  const _$JwtTokenRefreshFailure() : super._();
+
+  @override
+  String toString() {
+    return 'Failure.jwtTokenRefreshFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$JwtTokenRefreshFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
+    required TResult Function() dataParsingFailure,
+    required TResult Function() noConnectionFailure,
+    required TResult Function() unauthorizedFailure,
+    required TResult Function() notFoundFailure,
+    required TResult Function() noUserDataFailure,
+    required TResult Function() getStorageDataFailure,
+    required TResult Function() saveStorageDataFailure,
+    required TResult Function() undefinedFailure,
+    required TResult Function() dioOtherFailure,
+    required TResult Function() jwtTokenIssuingFailure,
+    required TResult Function() jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenRefreshFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? dataParsingFailure,
+    TResult Function()? noConnectionFailure,
+    TResult Function()? unauthorizedFailure,
+    TResult Function()? notFoundFailure,
+    TResult Function()? noUserDataFailure,
+    TResult Function()? getStorageDataFailure,
+    TResult Function()? saveStorageDataFailure,
+    TResult Function()? undefinedFailure,
+    TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenRefreshFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? dataParsingFailure,
+    TResult Function()? noConnectionFailure,
+    TResult Function()? unauthorizedFailure,
+    TResult Function()? notFoundFailure,
+    TResult Function()? noUserDataFailure,
+    TResult Function()? getStorageDataFailure,
+    TResult Function()? saveStorageDataFailure,
+    TResult Function()? undefinedFailure,
+    TResult Function()? dioOtherFailure,
+    TResult Function()? jwtTokenIssuingFailure,
+    TResult Function()? jwtTokenRefreshFailure,
+    required TResult orElse(),
+  }) {
+    if (jwtTokenRefreshFailure != null) {
+      return jwtTokenRefreshFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure value) serverFailure,
+    required TResult Function(DataParsingFailure value) dataParsingFailure,
+    required TResult Function(NoConnectionFailure value) noConnectionFailure,
+    required TResult Function(UnauthorizedFailure value) unauthorizedFailure,
+    required TResult Function(NotFoundFailure value) notFoundFailure,
+    required TResult Function(NoUserDataFailure value) noUserDataFailure,
+    required TResult Function(GetStorageDataFailure value)
+        getStorageDataFailure,
+    required TResult Function(SaveStorageDataFailure value)
+        saveStorageDataFailure,
+    required TResult Function(UndefinedFailure value) undefinedFailure,
+    required TResult Function(DioOtherFailure value) dioOtherFailure,
+    required TResult Function(JwtTokenIssuingFailure value)
+        jwtTokenIssuingFailure,
+    required TResult Function(JwtTokenRefreshFailure value)
+        jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenRefreshFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure value)? serverFailure,
+    TResult Function(DataParsingFailure value)? dataParsingFailure,
+    TResult Function(NoConnectionFailure value)? noConnectionFailure,
+    TResult Function(UnauthorizedFailure value)? unauthorizedFailure,
+    TResult Function(NotFoundFailure value)? notFoundFailure,
+    TResult Function(NoUserDataFailure value)? noUserDataFailure,
+    TResult Function(GetStorageDataFailure value)? getStorageDataFailure,
+    TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
+    TResult Function(UndefinedFailure value)? undefinedFailure,
+    TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
+  }) {
+    return jwtTokenRefreshFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure value)? serverFailure,
+    TResult Function(DataParsingFailure value)? dataParsingFailure,
+    TResult Function(NoConnectionFailure value)? noConnectionFailure,
+    TResult Function(UnauthorizedFailure value)? unauthorizedFailure,
+    TResult Function(NotFoundFailure value)? notFoundFailure,
+    TResult Function(NoUserDataFailure value)? noUserDataFailure,
+    TResult Function(GetStorageDataFailure value)? getStorageDataFailure,
+    TResult Function(SaveStorageDataFailure value)? saveStorageDataFailure,
+    TResult Function(UndefinedFailure value)? undefinedFailure,
+    TResult Function(DioOtherFailure value)? dioOtherFailure,
+    TResult Function(JwtTokenIssuingFailure value)? jwtTokenIssuingFailure,
+    TResult Function(JwtTokenRefreshFailure value)? jwtTokenRefreshFailure,
+    required TResult orElse(),
+  }) {
+    if (jwtTokenRefreshFailure != null) {
+      return jwtTokenRefreshFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class JwtTokenRefreshFailure extends Failure {
+  const factory JwtTokenRefreshFailure() = _$JwtTokenRefreshFailure;
+  const JwtTokenRefreshFailure._() : super._();
 }

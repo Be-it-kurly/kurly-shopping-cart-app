@@ -104,10 +104,10 @@ class ShoppingCartRepository {
       required CartResultResponse cartResult}) async {
     try {
       Map<String, dynamic> cartResultMap = cartResult.toJson();
-      await _api.updateSoldCartResult(
+      bool result = await _api.updateSoldCartResult(
           updateCartData: cartResultMap, searchCount: searchCount);
 
-      return Right(true);
+      return Right(result);
     } on NoInternetConnectionException {
       return Left(NoConnectionFailure());
     } on TimeOutException {

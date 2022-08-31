@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:kurly_shopping_cart_app/controller/ui_interpreter/failure_ui_interpreter.dart';
 import 'package:kurly_shopping_cart_app/data/repository/keyword_repository.dart';
 import 'package:kurly_shopping_cart_app/ui/theme/colors.dart';
+import 'package:kurly_shopping_cart_app/ui/widgets/loading/loading.dart';
 import 'package:kurly_shopping_cart_app/ui/widgets/snackbar/snackbar.dart';
 import '../../configs/constants/enum.dart';
 import '../../core/error_handling/failures.dart';
@@ -122,7 +123,12 @@ class ShoppingCartStep1Controller extends GetxController
         active: false,
         keywordType: KeywordType.foodType,
         colorSet: getColorSetByKeyword(keywordType: KeywordType.foodType)));
-    await _getUserKeywords();
+  }
+
+  @override
+  onReady() async {
+    super.onReady();
+    await showLoading(() => _getUserKeywords());
     _assignUserKeywords();
   }
 
@@ -136,9 +142,9 @@ class ShoppingCartStep1Controller extends GetxController
 
     for (int i = 0; i < keywords.length; i++) {
       nodeList[i + 1].text = keywords[i];
-      print(nodeList[i].text);
     }
     nodeList.refresh();
+    update();
   }
 
   _getUserKeywords() async {

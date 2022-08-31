@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kurly_shopping_cart_app/routes/routes.dart';
+import 'package:kurly_shopping_cart_app/ui/widgets/snackbar/snackbar.dart';
 import '../../data/model/user.dart';
 import '../auth_controller.dart';
 
@@ -10,6 +11,7 @@ class StartController extends GetxController
   late AnimationController animationController;
   final List<KurlyUser> _userList = [];
   List<KurlyUser> get userList => _userList;
+  KurlyUser? _selectedUser;
 
   @override
   onInit() {
@@ -19,10 +21,22 @@ class StartController extends GetxController
     _setTextAnimation();
   }
 
+  @override
+  onClose() {
+    animationController.dispose();
+    super.onClose();
+  }
+
   setUserAndNextPage({required int userIndex}) async {
-    await AuthController.to.setCurrentUser(selectedUser: _userList[userIndex]);
-    AuthController.to.updatePageView(isInit: 1);
-    Get.toNamed(Routes.HOME, arguments: userList[userIndex]);
+    _selectedUser = await AuthController.to
+        .onSelectedUserChanged(selectedUser: _userList[userIndex]);
+
+    if (_selectedUser != null) {
+      await AuthController.to.updatePageView(isInit: 1);
+      Get.toNamed(Routes.HOME, arguments: _selectedUser);
+    } else {
+      showSnackbar(text: '유저를 인증할 수 없습니다');
+    }
   }
 
   _setTextAnimation() {

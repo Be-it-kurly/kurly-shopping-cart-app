@@ -14,4 +14,6 @@ class Failure with _$Failure {
   const factory Failure.saveStorageDataFailure() = SaveStorageDataFailure;
   const factory Failure.undefinedFailure() = UndefinedFailure;
   const factory Failure.dioOtherFailure() = DioOtherFailure;
+  const factory Failure.jwtTokenIssuingFailure() = JwtTokenIssuingFailure;
+  const factory Failure.jwtTokenRefreshFailure() = JwtTokenRefreshFailure;
 }

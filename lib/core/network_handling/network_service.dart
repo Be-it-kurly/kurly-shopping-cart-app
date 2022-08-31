@@ -81,7 +81,11 @@ class Api {
           }
       }
       if (result != null && result.data['success'] == true) {
-        return result.data['data'] as Map<String, dynamic>;
+        if (result.data['data'] != null) {
+          return result.data['data'] as Map<String, dynamic>;
+        } else {
+          return result.data as Map<String, dynamic>;
+        }
       } else {
         throw NoDataException();
       }
@@ -105,7 +109,6 @@ class AuthInterceptor extends QueuedInterceptor {
       if (accessToken.isEmpty) {
         accessToken = TokenManager().refreshToken();
       }
-
       options.headers.remove("requiresToken");
       options.headers.addAll({"access-token": accessToken});
     }

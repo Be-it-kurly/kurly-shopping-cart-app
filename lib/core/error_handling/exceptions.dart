@@ -51,6 +51,13 @@ class LocalStorageException extends CustomError {
   }
 }
 
+class JwtTokenSigningException extends CustomError {
+  @override
+  String toString() {
+    return 'Success, but empty list';
+  }
+}
+
 class CustomError implements Exception {
   CustomError({
     this.requestOptions,

@@ -33,11 +33,28 @@ class AuthController extends GetxController {
     }
   }
 
-  setCurrentUser({required KurlyUser selectedUser}) async {
-    _currentUser = selectedUser;
-    await _authRepository.saveJwtTokenWithUserId(
+  Future<KurlyUser?> onSelectedUserChanged(
+      {required KurlyUser selectedUser}) async {
+    KurlyUser? authorizedUser;
+    var newTokenEither = await _authRepository.issueJwtTokenWithUserId(
       userId: selectedUser.userId,
     );
+    String newToken = newTokenEither.fold(
+        (failure) => FailureInterpreter()
+            .mapFailureToDialog(failure, 'onSelectedUserChanged, 토큰 발행 오륜ㄴ'),
+        (token) => token);
+
+    var saveCacheEither = await _authRepository.saveUserIdAndTokenCache(
+        userId: selectedUser.userId, token: newToken);
+
+    authorizedUser = await saveCacheEither.fold(
+        (failure) => FailureInterpreter().mapFailureToDialog(
+            failure, 'onSelectedUserChanged, cache 발행 오류'), (success) {
+      _currentUser = selectedUser;
+      return _currentUser;
+    });
+
+    return authorizedUser;
   }
 
   Future<void> _setUserList() async {
@@ -45,7 +62,7 @@ class AuthController extends GetxController {
         await _authRepository.getUserList();
 
     kurlyUserEither.fold((fail) {
-      FailureInterpreter().mapFailureToDialog(fail, 'setUserInfo');
+      FailureInterpreter().mapFailureToDialog(fail, '_setUserList');
     }, (users) {
       _kurlyUserList.assignAll(users);
     });

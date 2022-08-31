@@ -57,7 +57,7 @@ class ShoppingCartAPI {
       {required int searchCount,
       required Map<String, dynamic> updateCartData}) async {
     try {
-      await _dio.apiCall(
+      var result = await _dio.apiCall(
           url: HttpUrl.UPDATE_SOLD_CART,
           queryParameters: null,
           header: {"requiresToken": true},

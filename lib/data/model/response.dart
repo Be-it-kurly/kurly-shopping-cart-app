@@ -52,11 +52,8 @@ class CartResultResponse {
       int mealPrice = 0;
 
       if (json['receiptList'] != null) {
-        // List<dynamic> totalDoubleList = json['receiptList'] as List<dynamic>;
-
         totalDailyRecipeList =
             (json['receiptList'] as List<dynamic>).map((dailyList) {
-          // dynamic list = dailyList;
           List<Recipe> dailyRecipeList = (dailyList as List<dynamic>)
               .map((recipe) => Recipe.fromJson(recipe as Map<String, dynamic>))
               .toList();

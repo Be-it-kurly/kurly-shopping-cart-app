@@ -20,6 +20,6 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     AuthController.to.updatePageView(isInit: 0);
-    _user = Get.arguments as KurlyUser;
+    _user = AuthController.to.currentUser;
   }
 }

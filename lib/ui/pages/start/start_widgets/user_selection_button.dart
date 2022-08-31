@@ -47,7 +47,7 @@ class UserSelectButton extends StatelessWidget {
                 backgroundColor: KurlyColors.grey120,
               ),
               SizedBox(
-                width: 10,
+                width: 9,
               ),
               Expanded(
                 child: Column(
@@ -61,12 +61,13 @@ class UserSelectButton extends StatelessWidget {
                             style: TextStyle(
                                 fontFamily: KurlyFontStyle.notoSansKR,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 17),
+                                fontSize: 16),
                             children: [
                               TextSpan(
                                 text: ' $userAge세',
                                 style: GoogleFonts.openSans(
-                                    fontWeight: FontWeight.w400, fontSize: 16),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14.5),
                               )
                             ]),
                       ),
