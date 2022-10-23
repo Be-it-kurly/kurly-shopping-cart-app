@@ -1,5 +1,10 @@
 ## **🌄 스크린샷 (GIF 파일)**
 
+![메인페이지](https://user-images.githubusercontent.com/47681139/197372210-dad131a2-d36c-4bf9-8c03-ae076a964c18.png)
+![장바구니1](https://user-images.githubusercontent.com/47681139/197372216-171a747c-c835-4779-9342-87df1135ae14.png)
+![장바구니2](https://user-images.githubusercontent.com/47681139/197372220-9a3b64fe-0e7c-409c-88e1-aee840cc52ab.png)
+![결과 페이지](https://user-images.githubusercontent.com/47681139/197372226-fa7f2f23-5e31-43ae-a015-188d80c3da91.png)
+
 ## ⚙️ Client Front-End (Flutter) Architecture
 
 ✅  ***GetX*** 프레임워크를 적극 사용하였습니다.
