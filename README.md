@@ -1,9 +1,13 @@
 ## **🌄 스크린샷 (GIF 파일)**
+<p float="left">
+<img src = "https://user-images.githubusercontent.com/47681139/197372583-47f52f71-b8c2-4735-b9fe-8f16b4999762.png" width="30%" height="30%">
+<img src = "https://user-images.githubusercontent.com/47681139/197372216-171a747c-c835-4779-9342-87df1135ae14.png" width="30%" height="30%">
+    </p>
+    <p float="left">
+<img src = "https://user-images.githubusercontent.com/47681139/197372220-9a3b64fe-0e7c-409c-88e1-aee840cc52ab.png" width="30%" height="30%">
+<img src = "https://user-images.githubusercontent.com/47681139/197372226-fa7f2f23-5e31-43ae-a015-188d80c3da91.png" width="30%" height="30%">
+    </p>
 
-![메인페이지](https://user-images.githubusercontent.com/47681139/197372210-dad131a2-d36c-4bf9-8c03-ae076a964c18.png)
-![장바구니1](https://user-images.githubusercontent.com/47681139/197372216-171a747c-c835-4779-9342-87df1135ae14.png)
-![장바구니2](https://user-images.githubusercontent.com/47681139/197372220-9a3b64fe-0e7c-409c-88e1-aee840cc52ab.png)
-![결과 페이지](https://user-images.githubusercontent.com/47681139/197372226-fa7f2f23-5e31-43ae-a015-188d80c3da91.png)
 
 ## ⚙️ Client Front-End (Flutter) Architecture
 
