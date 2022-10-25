@@ -17,9 +17,10 @@
 
 1. ***View***는 유저의 액션 (touch, scroll 등)을 받고 ***Controller***에 넘겨줍니다.
 2. ***Controller***는 받은 액션을 토대로 ***Repository***에 적절한 파라미터를 넘겨줘서 특정 비즈니스 로직을 수행하도록 합니다
-3. Repository는 HTTP Request 방식을 알맞게 구성하여 ***DIO***에 값을 요청합니다.
+3. Repository는 HTTP Request 방식을 알맞게 구성하여 자체 ***Network Service***를 통해 ***DIO***에 값을 요청합니다.
 4. DIO는 최종적으로 백엔드와 통신하여 값을 얻어냅니다.
-5. HTTP Response를 최종적으로 받으면 왔던 방향 반대로 순서대로 돌아가 success 또는 error를 리턴하여 UI에 반영합니다.
+5. HTTP Response를 최종적으로 받으면 왔던 방향 반대로 순서대로 돌아가 result 또는 exception을 리턴합니다.
+6. 리턴된 result는 값에 할당되고, ***exception***인 경우 구체적인 ***failure***과 매핑되어 알맞은 방식으로 사용자에게 대응합니다.
 
 ## 👨🏻‍💻 Team
 
